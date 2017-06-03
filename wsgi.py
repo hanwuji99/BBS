@@ -34,4 +34,14 @@ gunicorn.config.py
 
 bind = '0.0.0.0:2001'
 pid = '/tmp/BBS.pid'
+
+[program:redis]
+command=/usr/local/bin/redis-server /home/gamely/redis-stable/redis.conf
+directory=/var/lib/redis
+user=redis
+autostart=true
+stopsignal=QUIT
+redirect_stderr=true
+stdout_logfile=/var/log/redis.log
+
 """
