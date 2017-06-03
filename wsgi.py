@@ -11,21 +11,21 @@ application = app.app
 
 """
 建立一个软连接
-ln -s /var/www/mybbs/bbs.conf /etc/supervisor/conf.d/bbs.conf
+ln -s /var/www/BBS/BBS.supervisor.conf /etc/supervisor/conf.d/BBS.supervisor.conf
 
-ln -s /var/www/mybbs/bbs.nginx /etc/nginx/sites-enabled/bbs
+ln -s /var/www/BBS/BBS.nginx /etc/nginx/sites-enabled/BBS
 
-ln -s /var/www/mybbs/redis-server.conf /etc/supervisor/conf.d/redis-server.conf
+ln -s /var/www/BBS/redis-server.conf /etc/supervisor/conf.d/redis-server.conf
 
-ln -s /var/www/mybbs/mongod.conf /etc/supervisor/conf.d/mongod.conf
+ln -s /var/www/BBS/mongod.conf /etc/supervisor/conf.d/mongod.conf
 
 
 
-➜  ~ cat /etc/supervisor/conf.d/bbs.conf
+➜  ~ cat /etc/supervisor/conf.d/BBS.supervisor.conf
 
-[program:mybbs]
+[program:BBS]
 command=/usr/local/bin/gunicorn wsgi -c gunicorn.config.py
-directory=/var/www/mybbs
+directory=/var/www/BBS
 autostart=true
 autorestart=true
 
@@ -33,5 +33,5 @@ autorestart=true
 gunicorn.config.py
 
 bind = '0.0.0.0:2001'
-pid = '/tmp/bbs.pid'
+pid = '/tmp/BBS.pid'
 """
